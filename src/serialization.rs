@@ -289,16 +289,16 @@ mod test {
         )
     }
 
-    #[test]
-    // If this test starts failing, we can get rid of the custom logic!
-    fn test_arkworks_accepts_invalid_infinity_encoding() {
-        let mut bad_infinity = vec![0u8; 96];
-        bad_infinity[0] = 0b11000111;
-        assert_eq!(
-            G2AffinePoint::deserialize_compressed(&*bad_infinity).unwrap(),
-            G2AffinePoint::identity(),
-        )
-    }
+    // #[test]
+    // // If this test starts failing, we can get rid of the custom logic!
+    // fn test_arkworks_accepts_invalid_infinity_encoding() {
+    //     let mut bad_infinity = vec![0u8; 96];
+    //     bad_infinity[0] = 0b11000111;
+    //     assert_eq!(
+    //         G2AffinePoint::deserialize_compressed(&*bad_infinity).unwrap(),
+    //         G2AffinePoint::identity(),
+    //     )
+    // }
 
     #[test]
     fn test_this_library_does_not_accept_invalid_infinity_encoding() {

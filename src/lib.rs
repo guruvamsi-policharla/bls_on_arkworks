@@ -566,7 +566,7 @@ mod test {
         assert!(pubkey_subgroup_check(g));
 
         // flip x and y, this should be an invalid point!
-        let not_g = G1AffinePoint::new_unchecked(*g.y().unwrap(), *g.x().unwrap());
+        let not_g = G1AffinePoint::new_unchecked(g.y().unwrap(), g.x().unwrap());
         assert!(!pubkey_subgroup_check(not_g));
     }
 
@@ -576,7 +576,7 @@ mod test {
         assert!(signature_subgroup_check(g));
 
         // flip x and y, this should be an invalid point!
-        let not_g = G2AffinePoint::new_unchecked(*g.y().unwrap(), *g.x().unwrap());
+        let not_g = G2AffinePoint::new_unchecked(g.y().unwrap(), g.x().unwrap());
         assert!(!signature_subgroup_check(not_g));
     }
 
