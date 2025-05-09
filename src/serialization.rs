@@ -35,7 +35,7 @@ pub fn point_to_octets_uncompressed_e1(p: G1AffinePoint) -> Octets {
 /// This function accepts compressed (48 bytes) representations.
 pub fn octets_to_point_e1(octets: &Octets) -> Result<G1AffinePoint, BLSError> {
     validate_infinity_flag(octets)?;
-    G1AffinePoint::deserialize_compressed(&**octets).map_err(BLSError::from)
+    G1AffinePoint::deserialize_compressed_unchecked(&**octets).map_err(BLSError::from)
 }
 
 /// Similar to [`octets_to_point_e1`] but accepts uncompressed (96 bytes) format.
@@ -71,7 +71,7 @@ pub fn point_to_octets_uncompressed_e2(p: G2AffinePoint) -> Octets {
 /// This function accepts compressed (96 bytes) representations.
 pub fn octets_to_point_e2(octets: &Octets) -> Result<G2AffinePoint, BLSError> {
     validate_infinity_flag(octets)?;
-    G2AffinePoint::deserialize_compressed(&**octets).map_err(BLSError::from)
+    G2AffinePoint::deserialize_compressed_unchecked(&**octets).map_err(BLSError::from)
 }
 /// Similar to [`octets_to_point_e2`] but accepts uncompressed (192 bytes) representations.
 pub fn octets_to_point_e2_uncompressed(octets: &Octets) -> Result<G2AffinePoint, BLSError> {
